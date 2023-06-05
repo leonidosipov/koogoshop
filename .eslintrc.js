@@ -103,6 +103,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'no-extra-boolean-cast': 0,
     'react/require-default-props': 0,
+    'arrow-body-style': 'off',
   },
   globals: {
     window: true,
