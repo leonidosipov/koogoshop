@@ -12,18 +12,16 @@ export const StyledFCL = styled(FormControlLabel)<{ checked: boolean }>`
     text-decoration: ${({ checked }) => (checked ? 'line-through' : 'none')};
   }
 `;
+*/
 
-export const Wrapper = styled.div`
-
+export const ProductCardsContainer = styled.div`
   margin-top: 64px;
-  display: flex;
-  flex-direction: column;
-  grid-gap: 24px;
-  width: 100%;
-  min-width: 400px;
-  max-width: 700px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
 `;
+
+/*
 export const StyledTextField = styled(TextField)`
   width: 100%;
 `;

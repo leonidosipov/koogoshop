@@ -8,6 +8,7 @@ export const Wrapper = styled.article`
   position: relative;
   border-radius: 10px;
   border: 1.5px solid #eaebed;
+  overflow: hidden;
 
   background-color: ${COLOR_PALLETTE.MAIN_WHITE};
 `;

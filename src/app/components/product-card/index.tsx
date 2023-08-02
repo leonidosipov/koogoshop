@@ -15,31 +15,39 @@ import {
   ButtonWrapper,
   StyledChip,
 } from './styles';
+import { ImageComponent } from '../image-component';
 import { Price } from '../price';
 
-const options = {
-  name: 'Kugoo Kirin',
-  characteristics: [
-    { id: 'capacity', value: '2000 mAh' },
-    { id: 'power', value: '1,2 л.с.' },
-    { id: 'speed', value: '60 km/ч' },
-    { id: 'time', value: '5 часов' },
-  ],
-  price: { price: '29000 р', discount: '19000 р' },
-};
+interface CharacteristicProps {
+  id: string;
+  value: string;
+}
+interface PriceProps {
+  price: string;
+  discount: string;
+}
+
+interface Props {
+  name: string;
+  characteristics: CharacteristicProps[];
+  price: PriceProps;
+  img: string;
+}
 
 const imagesMap = { capacity: <Capacity />, time: <Time />, power: <Power />, speed: <Speed /> };
 
-export const ProductCard = () => {
+export const ProductCard = ({ name, characteristics, price, img }: Props) => {
   return (
     <Wrapper>
-      <Box height="231px" />
+      <Box height="231px">
+        <ImageComponent src={img} />
+      </Box>
       <ContentWrapper>
         <StyledChip label="ХИТ" color="secondary" />
-        <Typography variant="h6">{options.name} </Typography>
+        <Typography variant="h6">{name} </Typography>
 
         <CharacteristicsWrapper>
-          {options.characteristics.map(e => (
+          {characteristics.map(e => (
             <Box key={e.id} display="flex" alignItems="center">
               <Box marginRight="12px">{imagesMap[e.id as keyof typeof imagesMap]}</Box>
               <Typography variant="inherit" whiteSpace="nowrap">
@@ -55,7 +63,7 @@ export const ProductCard = () => {
           marginTop="24px"
           marginBottom="16px">
           <PriceWrapper>
-            <Price {...options.price} />
+            <Price {...price} />
           </PriceWrapper>
           <ButtonWrapper>
             <StyledButton variant="outlined" startIcon={<ShoppingBasketOutlinedIcon />} />
