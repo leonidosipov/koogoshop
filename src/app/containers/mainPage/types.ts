@@ -1,5 +1,8 @@
-export interface TodoListItemDTO {
-  id: string;
-  text: string;
-  checked: boolean;
+import { ProductDTO } from 'types/api';
+
+export interface MainPageState {
+  products: ProductDTO[];
+  productsLoading: boolean;
 }
+
+export type ContainerState = MainPageState;

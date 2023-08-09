@@ -2,22 +2,26 @@ import { memo, useState } from 'react';
 
 import { FormGroup, Box, Typography } from '@mui/material';
 
-import { ProductCard } from 'app/components';
+import { ProductCard, Accordion } from 'app/components';
 import { useNotifier } from 'hooks/use-notifier';
 
-import { data } from './config';
 import { useMainPage } from './hooks';
+import { useDetailInfoSlice } from './hooks/useDetailInfoSlice';
 import { ProductCardsContainer } from './styles';
 
 export const MainPage = memo(() => {
+  useDetailInfoSlice();
   useNotifier();
+  const { products, productsLoading } = useMainPage();
+
   // const { list, handleChangeTodoItemStatus, handleDeleteToDoItem, handleAddTodoItem } = useMainPage();
 
   return (
     <Box>
       <Typography>Электросамокаты</Typography>
+      <Accordion />
       <ProductCardsContainer>
-        {data.map(e => (
+        {products?.map(e => (
           <ProductCard {...e} key={e.id} />
         ))}
       </ProductCardsContainer>

@@ -1,3 +1,4 @@
+import { MainPageState } from 'app/containers/mainPage/types';
 import { NotifierTypesState } from 'store/notifier/types';
 import { PageTypesState } from 'store/pageStore/types';
 
@@ -8,4 +9,5 @@ import { PageTypesState } from 'store/pageStore/types';
 export interface RootState {
   pageStore: PageTypesState;
   notifierStore: NotifierTypesState;
+  mainPage: MainPageState;
 }
